@@ -1,0 +1,161 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    background-color: #e0f7fa; /* Color suave y calmante para el fondo */
+    color: #333; /* Color del texto para facilitar la lectura */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
+}
+
+a {
+    color: #007bff; /* Azul que resalta pero sigue siendo suave */
+    text-decoration: none; /* Elimina el subrayado */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+    a:hover, a:focus {
+        color: #0056b3; /* Azul más oscuro al pasar el ratón o enfocar */
+    }
+
+.btn-create {
+    background-color: #28a745; /* Verde positivo y vibrante */
+    color: white; /* Texto en blanco para mejor contraste */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    padding: 8px 16px; /* Aumenta el relleno para un botón más grande y táctil */
+    transition: background-color 0.3s ease;
+}
+
+    .btn-create:hover, .btn-create:focus {
+        background-color: #218838; /* Verde más oscuro al interactuar */
+    }
+
+.btn-edit {
+    background-color: #fd7e14; /* Naranja para indicar cambio o acción */
+    color: white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-edit:hover, .btn-edit:focus {
+        background-color: #e8590c; /* Naranja más oscuro al interactuar */
+    }
+
+.btn-delete {
+    background-color: #dc3545; /* Rojo para acciones destructivas */
+    color: white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-delete:hover, .btn-delete:focus {
+        background-color: #c82333; /* Rojo más oscuro al interactuar */
+    }
+
+.btn-details {
+    background-color: #17a2b8; /* Azul para información */
+    color: white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-details:hover, .btn-details:focus {
+        background-color: #138496; /* Azul más oscuro al interactuar */
+    }
+
+.btn-back {
+    background-color: #6c757d; /* Gris neutral para volver */
+    color: white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-back:hover, .btn-back:focus {
+        background-color: #5a6268; /* Gris más oscuro al interactuar */
+    }
+
+.form-control {
+    border-color: #ced4da;
+    border-radius: 4px; /* Bordes redondeados para un look moderno */
+    padding: 10px; /* Aumenta el relleno para una mejor interacción */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Suave transición en la interacción */
+}
+
+    .form-control:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 251, 0.25);
+    }
+
+.form-check-input:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 251, 0.25);
+}
+
+.navbar {
+    background-color: #343a40; /* Fondo oscuro y elegante para la barra de navegación */
+    padding: 15px; /* Aumenta el relleno para una mejor separación de los elementos */
+}
+
+.navbar-nav .nav-link {
+    color: #f8f9fa; /* Texto en blanco para mayor contraste */
+    padding: 10px 15px; /* Aumenta el área de clic */
+    transition: color 0.3s ease; /* Transición suave en el color */
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #ffc107; /* Amarillo dorado al pasar el ratón */
+    }
+
+.footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 20px 0; /* Espaciado superior e inferior */
+    text-align: center; /* Centra el texto */
+}
+
+    .footer a {
+        color: #ffc107; /* Amarillo dorado para enlaces en el pie de página */
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .footer a:hover {
+            color: #ff5722; /* Naranja vibrante al pasar el ratón */
+        }
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}

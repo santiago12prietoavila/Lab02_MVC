@@ -1,0 +1,25 @@
+﻿@model BibliotecaWebApplication.Models.Estanteria
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Eliminar Estanteria</h1>
+
+<h3>¿Estás seguro de que deseas eliminar esta estantería?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Alto)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Alto)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Ancho)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Ancho)</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EstanteriaId" />
+        <button type="submit" class="btn btn-delete"><i class="fas fa-trash-alt"></i> Eliminar</button>
+        <a asp-action="Index" class="btn btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
+    </form>
+</div>
+
