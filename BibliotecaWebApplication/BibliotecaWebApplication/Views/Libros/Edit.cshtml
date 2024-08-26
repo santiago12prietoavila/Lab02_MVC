@@ -1,0 +1,130 @@
+﻿@model BibliotecaWebApplication.Models.Libro
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar Libro</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="LibroId" />
+            <div class="form-group">
+                <label asp-for="ISBN" class="control-label"></label>
+                <input asp-for="ISBN" class="form-control" />
+                <span asp-validation-for="ISBN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Formato" class="control-label"></label>
+                <input asp-for="Formato" class="form-control" />
+                <span asp-validation-for="Formato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumeroPaginas" class="control-label"></label>
+                <input asp-for="NumeroPaginas" class="form-control" />
+                <span asp-validation-for="NumeroPaginas" class="text-danger"></span>
+            </div>
+           
+            <br />
+            <h4>Seleccionar Autor(es)</h4>
+            <table id="dataTable" class="table">
+                <thead>
+                    <tr>
+                        <th>Seleccionar</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Nacionalidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var autor in ViewBag.Autores)
+                    {
+                        bool isSelected = ViewBag.SelectedAutores.Contains(autor.AutorId);
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="selectedAutores" value="@autor.AutorId" @(isSelected ? "checked" : "") />
+                            </td>
+                            <td>@autor.Nombres</td>
+                            <td>@autor.Apellidos</td>
+                            <td>@autor.Nacionalidad</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-create" data-toggle="modal" data-target="#crearAutorModal"><i class="fas fa-save"></i> Crear Autor</button>
+            <br />
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btn-create"><i class="fas fa-save"></i> Guardar</button>
+                <a asp-action="Index" class="btn btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="crearAutorModal" tabindex="-1" role="dialog" aria-labelledby="crearAutorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearAutorModalLabel">Crear Autor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="crearAutorForm" asp-action="CreateAutor" method="post">
+                    <div class="form-group">
+                        <label for="Nombres">Nombres</label>
+                        <input type="text" class="form-control" name="Nombres" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Apellidos">Apellidos</label>
+                        <input type="text" class="form-control" name="Apellidos" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Nacionalidad">Nacionalidad</label>
+                        <input type="text" class="form-control" name="Nacionalidad" required />
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-create"><i class="fas fa-save"></i> Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ entradas por página",
+                    "zeroRecords": "No se encontraron resultados",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+                    "infoEmpty": "Mostrando 0 a 0 de 0 entradas",
+                    "infoFiltered": "(filtrado de _MAX_ entradas totales)",
+                    "search": "Buscar:",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+        });
+    </script>
+}
+
+
+

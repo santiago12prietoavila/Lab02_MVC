@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BibliotecaWebApplication.Models.Estante>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Estantes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-create"><i class="fas fa-plus"></i> Crear Estante</a>
+</p>
+<table id="dataTable" class="display">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CodigoEstante)</th>
+            <th>@Html.DisplayNameFor(model => model.Estanteria.EstanteriaId)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CodigoEstante)</td>
+                <td>@Html.DisplayFor(modelItem => item.Estanteria.EstanteriaId)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.EstanteId" class="btn btn-edit btn-sm"><i class="fas fa-edit"></i> Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.EstanteId" class="btn btn-details btn-sm"><i class="fas fa-info-circle"></i> Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.EstanteId" class="btn btn-delete btn-sm"><i class="fas fa-trash-alt"></i> Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ entradas por página",
+                    "zeroRecords": "No se encontraron resultados",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+                    "infoEmpty": "Mostrando 0 a 0 de 0 entradas",
+                    "infoFiltered": "(filtrado de _MAX_ entradas totales)",
+                    "search": "Buscar:",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+        });
+    </script>
+}
+
